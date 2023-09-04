@@ -1,0 +1,64 @@
+<h4 class="fw-bold">Employee's Form</h4>
+
+<div class="container">
+    <div class="row d-flex justify-content-center flex-nonwrap">
+        <div class="col-md-6">
+            <form #employeeForm="ngForm">
+                <!-- <div class="form-group">
+                    <label for="employeeId">Employee ID</label>
+                    <input class="form-control" id="employeeId" placeholder="Enter Employee ID" name="employeeId" required [(ngModel)]="employeeObj.employeeId">
+                </div> -->
+                <div class="form-group">
+                    <label for="empFirstName">First Name</label>
+                    <input class="form-control" id="firstName" placeholder="Enter First Name" name="firstName" required [(ngModel)]="employeeObj.empFirstName">
+                </div>
+                <div class="form-group">
+                    <label for="empLastName">Last Name</label>
+                    <input class="form-control" id="lastName" placeholder="Enter Last Name" name="lastName" required [(ngModel)]="employeeObj.empLastName">
+                </div>
+                <div class="form-group">
+                    <label for="empStreetAddress">Street Address</label>
+                    <input class="form-control" id="streetAdress" placeholder="Enter Street Address" name="streetAddress" required [(ngModel)]="employeeObj.empStreetAddress">
+                </div>
+                <div class="form-group">
+                    <label for="empCity">City</label>
+                    <input class="form-control" id="city" placeholder="Enter City" name="city" required [(ngModel)]="employeeObj.empCity">
+                </div>
+                <div class="form-group">
+                    <label for="empCountry">Country</label>
+                    <input class="form-control" id="country" placeholder="Enter Country" name="country" required [(ngModel)]="employeeObj.empCountry">
+                </div>
+                <div class="form-group">
+                    <label for="empZipCode">Zip Code</label>
+                    <input class="form-control" id="zipCode" placeholder="Enter Zip Code" name="zipCode" required [(ngModel)]="employeeObj.empZipCode">
+                </div>
+                <div class="form-group">
+                    <label for="empAreaCode">Area Code</label>
+                    <input class="form-control" id="areaCode" placeholder="Enter Area Code" name="areaCode" required [(ngModel)]="employeeObj.empAreaCode">
+                </div>
+                <div class="form-group">
+                    <label for="empPhoneNumber">Phone Number</label>
+                    <input class="form-control" id="phoneNumber" placeholder="Enter Phone Number" name="phoneNumber" required [(ngModel)]="employeeObj.empPhoneNumber">
+                </div>
+                <div class="form-group">
+                    <label for="empBirthDate">Birth Date</label>
+                    <input class="form-control" id="birthDate" placeholder="Enter Birth Date (YYYY-MM-DD)" name="birthDate"
+                        required [(ngModel)]="employeeObj.empBirthDate">
+                        <!-- ngbDatepicker #d="ngbDatepicker"> -->
+                    <!-- <span class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" (click)="d.toggle()">
+                            <i class="fa-thin fa-calendar-days"></i>
+                        </button>
+                    </span> -->
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary" [disabled] = "!employeeForm.valid" (click)="addEmployee(employeeForm)" *ngIf="!isEdit">Add</button>
+                <button *ngIf="isEdit" class="btn btn-success" (click)="updateEmployee(employeeForm)">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<app-employee (sendToParent)="receiveEmployee($event)"></app-employee>
